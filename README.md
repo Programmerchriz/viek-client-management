@@ -19,7 +19,7 @@ The application supports login, viewing clients, adding clients, deleting client
 - The login response exposed the demo user's password.
 - The backend error handler exposed internal error details.
 - `App.jsx` used JSX without importing `React`, causing a browser runtime error.
-- The browser requested a missing `favicon.ico`; this did not affect application functionality.
+- The browser requested a missing `favicon.ico`, this did not affect application functionality.
 
 ## Root Causes
 
@@ -31,7 +31,7 @@ Backend validation only checked whether values existed. It did not validate data
 
 The login endpoint returned the complete user object, including the password. The fixed demo token and plaintext password were part of the simplified authentication implementation.
 
-The JSX runtime error occurred because `React` was not imported in `App.jsx`.
+A JSX runtime error occurred because `React` was not imported in `App.jsx`.
 
 ## Solutions
 
@@ -99,4 +99,4 @@ The most difficult issues to investigate were the API response mismatch and the 
 
 The debugging approach was to inspect the complete project, reproduce the failures, trace the frontend/backend data flow, fix the root causes, and test both successful and failed requests.
 
-The remaining limitations are related to the simplified demo authentication model. It is suitable for the assessment but is not production-ready.
+The remaining limitations are related to the simplified demo authentication model. It is suitable for the assessment but not for production.
